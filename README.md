@@ -2,7 +2,7 @@
 
 ## Instructor
 
-Eric Greene
+Eric Greene [LinkedIn](https://www.linkedin.com/in/erict4dio/) [Web Site](http://www.t4d.io)
 
 ## Schedule
 
@@ -24,6 +24,15 @@ Breaks:
 - Day 1: React, JSX, Function Components, Props, Hooks, State Hook, Event Handlers
 - Day 2: Class-Based Components, Class-based Component State, Composition, Redux, Actions, Reducers, Store
 - Day 3: React-Redux, Asynchronous Programming, Axios, Redux Sagas, React Routing, Unit Testing
+
+## Requirements
+
+- Node.js (version 10 or later)
+- Web Browser
+
+### FAQ
+
+[A Short FAQ for Setting up the React Application with Create React App](https://www.t4d.io/react-course-setup-faq.html)
 
 ## Links
 
