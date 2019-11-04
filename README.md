@@ -21,7 +21,7 @@ Breaks:
 
 ### JavaScript content will be included as needed in the class
 
-- Day 1: React, ES2015 Modules, JSX, Function Components, Props, Hooks, State Hook, Event Handlers
+- Day 1: React, JSX, Function Components, Props, Hooks, State Hook, Event Handlers
 - Day 2: Class-Based Components, Class-based Component State, Composition, Redux, Actions, Reducers, Store
 - Day 3: React-Redux, Asynchronous Programming, Axios, Redux Sagas, React Routing, Unit Testing
 
