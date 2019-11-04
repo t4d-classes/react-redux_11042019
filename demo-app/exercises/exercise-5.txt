@@ -1,0 +1,11 @@
+Exercise 5
+
+1. Add a new car form to the Car Tool component.
+
+2. When collecting the year and price data, be sure to store the information as number on the state.
+
+3. Add a button to the bottom of the form. When the button is clicked, add the car to the array, and clear the form.
+
+You must pass the initial array of cars as props from index to Car Tool component.
+
+4. Ensure it all works.

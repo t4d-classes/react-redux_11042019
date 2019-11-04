@@ -1,0 +1,17 @@
+Exercise 4.
+
+1. Solve world hunger.
+
+2. Solve world peace.
+
+3. Figure out Arizona's timezone relative to everyone else.
+
+4. Move the array of car objects to index.js and pass them as props to Car Tool.
+
+5. Pass the header text for the h1 element into Car Tool via props.
+
+6. Define prop-types validating the h1 header text and cars. For the cars use the arrayOf and shape validators.
+
+7. Setup a default prop for header text set to Car Tool.
+
+8. Ensure it works.
