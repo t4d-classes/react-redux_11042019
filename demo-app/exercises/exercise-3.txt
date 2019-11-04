@@ -1,0 +1,7 @@
+Exercise 3
+
+1. Create an array of car objects in the Car Tool component. Use the car data from the hardcoded table. <b>DO NOT</b> CREATE AN ARRAY OF ARRAYS. <b>DO NOT</b> CREATE 6 ARRAYS ON FOR EACH COLUMN.
+
+2. Utilizing the array of car objects, dynamically generate the row of the table.
+
+3. Ensure there are no errors.

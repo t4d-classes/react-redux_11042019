@@ -1,0 +1,11 @@
+Exercise 2
+
+1. Add a table to car tool. The table should have the following columns:
+
+Id, Make, Model, Year, Color, Price
+
+Be sure to use the HTML table element and other related table elements.
+
+2. Display two rows of car data in the table of cars. Not 1 row, not 3 or more rows.
+
+3. Ensure it works.
