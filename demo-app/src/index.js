@@ -10,8 +10,8 @@ const colorList = [
 ];
 
 const carList = [
-  { id: 1, make: 'Ford', model: 'Fusion Hybrid', year: 2019, color: 'white', price: 25000 },
-  { id: 2, make: 'Tesla', model: 'S', year: 2018, color: 'red', price: 125000 },
+  { id: 1, make: 'Ford', model: 'Fusion Hybrid', year: 2019, color: 'white', price: 25000, featured: true, },
+  { id: 2, make: 'Tesla', model: 'S', year: 2018, color: 'red', price: 100000, featured: false, },
 ];
 
 ReactDOM.render(

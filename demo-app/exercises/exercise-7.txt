@@ -1,0 +1,11 @@
+Exercise 7
+
+1. Create a new component named Car Form. Please include default props and prop types as needed.
+
+2. Move the car form in Car Tool to the new Car Form component. Ask yourself the all important question, what is the purpose of the Car Form component?
+
+Small Bonus: what needs to be customized in the form itself to align with the name Car Form for the component?
+
+3. Replace the car form in Car Tool with the Car Form component.
+
+4. Ensure it all works.
