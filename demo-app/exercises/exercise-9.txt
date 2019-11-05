@@ -1,0 +1,7 @@
+Exercise 9
+
+1. Add two new actions to the Calc Tool which we are building. Add multiply and divide.
+
+2. Utilize the actions at least once in the dispatch function calls towards the bottom.
+
+3. Ensure it works.
