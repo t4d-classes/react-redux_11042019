@@ -1,0 +1,7 @@
+Exercise 13
+
+1. Add a footer row to the operation history which shows the count of each operation type in the history.
+
+2. When a history entry is deleted, update the calculator result to reflect that operation being removed from the history.
+
+3. Ensure it all works.

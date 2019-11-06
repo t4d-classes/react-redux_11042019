@@ -1,0 +1,7 @@
+Exercise 10
+
+1. Create a calculator component following the diagram to the side:
+
+2. Connect it to the Redux we created just now.
+
+3. Ensure it works.

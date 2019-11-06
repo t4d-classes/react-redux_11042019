@@ -1,0 +1,5 @@
+Exercise 11
+
+1. Display a history of operations in a table beneath the calculator. For each operation, specificy the kind of operation (add, subtract, multiply, divide) and the number input value.
+
+2. Ensure it works.
