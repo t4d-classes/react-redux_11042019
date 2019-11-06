@@ -1,0 +1,15 @@
+Exercise
+
+1. Create a new file named 'carToolStore.js'. In the file, create and export a new store with 'carToolReducer' which is exported from 'carToolReducers.js'.
+
+2. Using the React-Redux Provider, pass the store into the component tree. We are using the hooks approach, not the connect API.
+
+3. Implement the delete car button functionality.
+
+4. Edit Car is partially implemented and does not currently work. Figure out the 2-3 bugs which exist, resolve them and ensure Edit Car is working correctly.
+
+5. Implement the cancel edit car feature. When the cancel button is clicked, the row being edited should change to view row. After adding, saving and deleting a car, the row in edit mode (if any) should be switched to view mode.
+
+6. Ensure it all works.
+
+

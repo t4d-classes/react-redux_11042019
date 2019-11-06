@@ -9,22 +9,22 @@ const DIVIDE_ACTION = 'DIVIDE';
 const CLEAR_ACTION = 'CLEAR';
 const DELETE_HISTORY_ENTRY_ACTION = 'DELETE_HISTORY_ENTRY_ACTION';
 
-const resultReducer = (result = 0, action) => {
-  switch (action.type) {
-    case ADD_ACTION:
-      return result + action.value;
-    case SUBTRACT_ACTION:
-      return result - action.value;
-    case MULTIPLY_ACTION:
-      return result * action.value;
-    case DIVIDE_ACTION:
-      return result / action.value;
-    case CLEAR_ACTION:
-      return 0;
-    default:
-      return result;
-  }  
-};
+// const resultReducer = (result = 0, action) => {
+//   switch (action.type) {
+//     case ADD_ACTION:
+//       return result + action.value;
+//     case SUBTRACT_ACTION:
+//       return result - action.value;
+//     case MULTIPLY_ACTION:
+//       return result * action.value;
+//     case DIVIDE_ACTION:
+//       return result / action.value;
+//     case CLEAR_ACTION:
+//       return 0;
+//     default:
+//       return result;
+//   }  
+// };
 
 const historyReducer = (history = [], action) => {
   switch (action.type) {
@@ -71,7 +71,7 @@ const historyReducer = (history = [], action) => {
 // };
 
 const calcToolReducer = combineReducers({
-  result: resultReducer,
+  // result: resultReducer,
   history: historyReducer,
 });
 
@@ -104,8 +104,12 @@ const createDeleteHistoryEntryAction = historyEntryId =>
 // const add = value => dispatch(createAddAction(value));
 //add(1);
 
+const getOpCount = (op, history) => {
+  return history.filter(entry => entry.op === op).length;
+};
+
 const Calculator = ({
-  result, history, onAdd, onSubtract,
+  history, onAdd, onSubtract,
   onMultiply, onDivide, onClear, onDeleteHistoryEntry
 }) => {
 
@@ -114,7 +118,20 @@ const Calculator = ({
   return <>
     <form>
       <div>
-        Result: {result}
+        Result: {history.reduce( (result, entry) => {
+          switch (entry.op) {
+            case 'Add':
+              return result + entry.val;
+            case 'Subtract':
+              return result - entry.val;
+            case 'Multiply':
+              return result * entry.val;
+            case 'Divide':
+              return result / entry.val;
+            default:
+              return result;
+          }
+        }, 0)}
       </div>
       <div>
         <label>Num Input:</label>
@@ -145,6 +162,16 @@ const Calculator = ({
             onClick={() => onDeleteHistoryEntry(entry.id)}>Delete</button></td>
         </tr>)}
       </tbody>
+      <tfoot>
+        <tr>
+          <td colSpan="3">
+            Add: {getOpCount('Add', history)},
+            Sub: {getOpCount('Subtract', history)},
+            Mul: {getOpCount('Multiply', history)},
+            Div: {getOpCount('Divide', history)},
+          </td>
+        </tr>
+      </tfoot>
     </table>
   </>;
 };
@@ -164,7 +191,6 @@ const { add, subtract, multiply, divide, clear, deleteHistoryEntry } = bindActio
 store.subscribe(() => {
   ReactDOM.render(
     <Calculator
-      result={store.getState().result}
       history={store.getState().history}
       onAdd={add}
       onSubtract={subtract}
