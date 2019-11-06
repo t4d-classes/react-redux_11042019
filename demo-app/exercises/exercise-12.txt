@@ -5,3 +5,9 @@ Exercise 12
 2. Add a delete button next to each history entry. When the delete button is clicked, remove the history entry. Do not worry about the updating the result, just remove the history entry.
 
 3. Ensure it works.
+
+        history: state.history.concat({
+          op: 'Divide',
+          val: action.value,
+          id: Math.max(...state.history.map(e => e.id), 0) + 1,
+        }),
