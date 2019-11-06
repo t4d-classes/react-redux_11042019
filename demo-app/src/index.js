@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, bindActionCreators } from 'redux';
+import { createStore, bindActionCreators, combineReducers } from 'redux';
 
 const ADD_ACTION = 'ADD';
 const SUBTRACT_ACTION = 'SUBTRACT';
@@ -9,63 +9,71 @@ const DIVIDE_ACTION = 'DIVIDE';
 const CLEAR_ACTION = 'CLEAR';
 const DELETE_HISTORY_ENTRY_ACTION = 'DELETE_HISTORY_ENTRY_ACTION';
 
-const calcToolReducer = (state = { result: 0, history: [] }, action) => {
+const resultReducer = (result = 0, action) => {
   switch (action.type) {
     case ADD_ACTION:
-      return {
-        ...state,
-        history: state.history.concat({
-          op: 'Add',
-          val: action.value,
-          id: Math.max(...state.history.map(e => e.id), 0) + 1,
-        }),
-        result: state.result + action.value,
-      };
+      return result + action.value;
     case SUBTRACT_ACTION:
-      return {
-        ...state,
-        history: state.history.concat({
-          op: 'Subtract',
-          val: action.value,
-          id: Math.max(...state.history.map(e => e.id), 0) + 1,
-        }),
-        result: state.result - action.value,
-      };
+      return result - action.value;
     case MULTIPLY_ACTION:
-      return {
-        ...state,
-        history: state.history.concat({
-          op: 'Multiply',
-          val: action.value,
-          id: Math.max(...state.history.map(e => e.id), 0) + 1,
-        }),
-        result: state.result * action.value,
-      };
+      return result * action.value;
     case DIVIDE_ACTION:
-      return {
-        ...state,
-        history: state.history.concat({
-          op: 'Divide',
-          val: action.value,
-          id: Math.max(...state.history.map(e => e.id), 0) + 1,
-        }),
-        result: state.result / action.value,
-      };
+      return result / action.value;
     case CLEAR_ACTION:
-      return {
-        ...state,
-        result: 0,
-        history: [],
-      };
-    case DELETE_HISTORY_ENTRY_ACTION:
-      return {
-        ...state,
-        history: state.history.filter(entry => entry.id !== action.historyEntryId),
-      }
+      return 0;
     default:
-      return state;
-  }
+      return result;
+  }  
 };
+
+const historyReducer = (history = [], action) => {
+  switch (action.type) {
+    case ADD_ACTION:
+      return history.concat({
+        op: 'Add',
+        val: action.value,
+        id: Math.max(...history.map(e => e.id), 0) + 1,
+      });
+    case SUBTRACT_ACTION:
+      return history.concat({
+        op: 'Subtract',
+        val: action.value,
+        id: Math.max(...history.map(e => e.id), 0) + 1,
+      });
+    case MULTIPLY_ACTION:
+      return history.concat({
+        op: 'Multiply',
+        val: action.value,
+        id: Math.max(...history.map(e => e.id), 0) + 1,
+      });
+    case DIVIDE_ACTION:
+      return history.concat({
+        op: 'Divide',
+        val: action.value,
+        id: Math.max(...history.map(e => e.id), 0) + 1,
+      });
+    case CLEAR_ACTION:
+      return [];
+    case DELETE_HISTORY_ENTRY_ACTION:
+      return history.filter(
+        entry => entry.id !== action.historyEntryId);
+    default:
+      return history;
+  }
+}
+
+// const calcToolReducer = (state = {}, action) => {
+//   return {
+//     ...state,
+//     result: resultReducer(state.result, action),
+//     history: historyReducer(state.history, action),
+//   };
+// };
+
+const calcToolReducer = combineReducers({
+  result: resultReducer,
+  history: historyReducer,
+});
 
 // const createStore = (reducerFn) => {
 //   let currentState = undefined;
